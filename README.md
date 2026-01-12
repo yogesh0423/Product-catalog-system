@@ -1,4 +1,4 @@
-## 🛒 Product Catalog System
+# 🛒 Product Catalog System
 
 A Product Catalog System is a web-based application that allows users to view, manage, and organize products efficiently. This project demonstrates core concepts of backend development, database management, and CRUD operations using Flask.
 
@@ -6,29 +6,29 @@ A Product Catalog System is a web-based application that allows users to view, m
 
 ## 🚀 Features
 
-Add new products with details (name, price, category, description)
+1. Add new products with details (name, price, category, description)
 
-View all available products in a structured catalog
+2. View all available products in a structured catalog
 
-Update existing product information
+3. Update existing product information
 
-Delete products from the catalog
+4. Delete products from the catalog
 
-User-friendly and clean interface
+5. User-friendly and clean interface
 
-Database integration for persistent storage
+6. Database integration for persistent storage
 
 ---
 
 ## 🛠️ Tech Stack
 
-Backend: Python, Flask
+- Backend: Python, Flask
 
-Database: SQLite
+- Database: SQLite
 
-Frontend: HTML, CSS, Bootstrap
+- Frontend: HTML, CSS, Bootstrap
 
-Tools: Git, GitHub
+- Tools: Git, GitHub
 
 ---
 
@@ -59,55 +59,55 @@ product-catalog-system/
 
 1. Clone the repository
 
-```git clone https://github.com/your-username/product-catalog-system.git```
+    ```git clone https://github.com/your-username/product-catalog-system.git```
 
 
 2. Navigate to the project directory
 
-```cd product-catalog-system```
+    ```cd product-catalog-system```
 
 
 3. Create a virtual environment (optional but recommended)
 
 4. Install dependencies
 
-```pip install flask```
+    ```pip install flask```
 
 
 5. Run the application
 
-```python app.py```
+    ```python app.py```
 
 
 6. Open your browser and go to
 
-```http://127.0.0.1:5000/```
+    ```http://127.0.0.1:5000/```
 
 ---
 
 ## 🎯 Learning Outcomes
 
-Understanding Flask routing and templates
+- Understanding Flask routing and templates
 
-Working with databases using SQLite
+- Working with databases using SQLite
 
-Implementing CRUD operations
+- Implementing CRUD operations
 
-Structuring a Flask project properly
+- Structuring a Flask project properly
 
-Building real-world backend applications
+- Building real-world backend applications
 
 ---
 
 ## 📌 Future Enhancements
 
-User authentication (Admin/User roles)
+- User authentication (Admin/User roles)
 
-Product search and filtering
+- Product search and filtering
 
-Image upload for products
+- Image upload for products
 
-REST API support
+- REST API support
 
 ---
 
