@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalogue | Modern Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        h2 {
+            color: #333;
+            font-weight: 600;
+            font-size: 32px;
+            position: relative;
+        }
+        
+        h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .auth-links a {
+            color: #6a11cb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 6px;
+        }
+        
+        .auth-links a:hover {
+            background: rgba(106, 17, 203, 0.1);
+            color: #2575fc;
+        }
+        
+        .admin-links {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(106, 17, 203, 0.05);
+            border-radius: 10px;
+        }
+        
+        .admin-links a {
+            color: #6a11cb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 6px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .admin-links a:hover {
+            background: #6a11cb;
+            color: white;
+        }
+        
+        .search-form {
+            display: flex;
+            margin: 20px 0 30px;
+            max-width: 500px;
+        }
+        
+        .search-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #ddd;
+            border-radius: 10px 0 0 10px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .search-form input:focus {
+            border-color: #6a11cb;
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.2);
+        }
+        
+        .search-form button {
+            padding: 15px 25px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            border: none;
+            border-radius: 0 10px 10px 0;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-form button:hover {
+            opacity: 0.9;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6a11cb;
+            font-size: 50px;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #6a11cb;
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .product-stock {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        
+        .in-stock {
+            background: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+        }
+        
+        .out-of-stock {
+            background: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+        }
+        
+        .add-to-cart {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .add-to-cart:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        
+        .disabled:hover {
+            transform: none;
+            opacity: 1;
+        }
+        
+        .cart-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(106, 17, 203, 0.3);
+        }
+        
+        .cart-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(106, 17, 203, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .user-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .admin-links {
+                flex-wrap: wrap;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-form {
+                flex-direction: column;
+            }
+            
+            .search-form input {
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .search-form button {
+                border-radius: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>Product Catalogue</h2>
+            
+            <div class="user-info">
+                <!-- Navigation / Auth Links -->
+                {% if session.get('user_id') %}
+                    <p>Welcome,
+                        {% if session.get('role') == 'admin' %}
+                            <b style="color: #6a11cb;">Admin</b>
+                        {% else %}
+                            <b style="color: #6a11cb;">User</b>
+                        {% endif %}
+                    </p>
+                    <div class="auth-links">
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    </div>
+                {% else %}
+                    <div class="auth-links">
+                        <a href="{{ url_for('login') }}">Login</a>
+                        <a href="{{ url_for('signup') }}">Signup</a>
+                    </div>
+                {% endif %}
+            </div>
+        </header>
+
+        <!-- Admin-only Links -->
+        {% if session.get('role') == 'admin' %}
+            <div class="admin-links">
+                <a href="{{ url_for('admin_products') }}"><i class="fas fa-tools"></i> Manage Products</a>
+                <a href="{{ url_for('admin_orders') }}"><i class="fas fa-box"></i> View Orders</a>
+            </div>
+        {% endif %}
+
+        <!-- Product Search -->
+        <form method="get" class="search-form">
+            <input type="text" name="q" placeholder="Search products...">
+            <button type="submit"><i class="fas fa-search"></i> Search</button>
+        </form>
+
+        <!-- Product List -->
+        <div class="products-grid">
+            {% for p in products %}
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">{{ p['name'] }}</h3>
+                    <p class="product-price">₹{{ p['price'] }}</p>
+                    <p class="product-description">{{ p['description'] }}</p>
+                    
+                    {% if p['stock'] > 0 %}
+                        <span class="product-stock in-stock">In Stock ({{ p['stock'] }})</span>
+                        <a href="/cart/add/{{p['id']}}" class="add-to-cart">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </a>
+                    {% else %}
+                        <span class="product-stock out-of-stock">Out of Stock</span>
+                        <a class="add-to-cart disabled">Out of Stock</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <a href="/cart" class="cart-link"><i class="fas fa-shopping-cart"></i> View Cart</a>
+    </div>
+
+    <script>
+        // Simple animation for product cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const productCards = document.querySelectorAll('.product-card');
+            
+            productCards.forEach((card, index) => {
+                // Add delay for staggered animation
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('fade-in');
+            });
+        });
+    </script>
+</body>
+</html>
