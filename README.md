@@ -1,9 +1,10 @@
-🛒 Product Catalog System
+## 🛒 Product Catalog System
 
 A Product Catalog System is a web-based application that allows users to view, manage, and organize products efficiently. This project demonstrates core concepts of backend development, database management, and CRUD operations using Flask.
 
+---
 
-🚀 Features
+## 🚀 Features
 
 Add new products with details (name, price, category, description)
 
@@ -17,8 +18,9 @@ User-friendly and clean interface
 
 Database integration for persistent storage
 
+---
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 Backend: Python, Flask
 
@@ -28,8 +30,9 @@ Frontend: HTML, CSS, Bootstrap
 
 Tools: Git, GitHub
 
+---
 
-📂 Project Structure
+## 📂 Project Structure
 product-catalog-system/
 │
 ├── app.py
@@ -50,8 +53,9 @@ product-catalog-system/
 
 └── README.md
 
+---
 
-⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 
 1. Clone the repository
 
@@ -79,8 +83,9 @@ product-catalog-system/
 
 ```http://127.0.0.1:5000/```
 
+---
 
-🎯 Learning Outcomes
+## 🎯 Learning Outcomes
 
 Understanding Flask routing and templates
 
@@ -92,8 +97,9 @@ Structuring a Flask project properly
 
 Building real-world backend applications
 
+---
 
-📌 Future Enhancements
+## 📌 Future Enhancements
 
 User authentication (Admin/User roles)
 
@@ -103,8 +109,9 @@ Image upload for products
 
 REST API support
 
+---
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Yogesh Patil
 Aspiring Backend Developer | Flask & Database Enthusiast
